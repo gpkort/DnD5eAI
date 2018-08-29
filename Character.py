@@ -1,7 +1,7 @@
 
 class Character(object):
 
-    def __init__(self, strength: str):
+    def __init__(self, strength: int):
         self.__strength = strength
 
 
@@ -11,5 +11,5 @@ class Character(object):
 
     @strength.setter
     def strength(self, val):
-        if
+        pass
 
