@@ -11,6 +11,9 @@ class Character(object):
         self.__charisma = 0
         self.__constitution = 0
 
+        self.__xp = 0
+        self.__currentHitPoints = 0
+
         self.validate_name(name)
         self.__name = name
 
@@ -70,7 +73,30 @@ class Character(object):
         self.validate_attribute(val)
         self.__constitution = val
 
+
 # </editor-fold>
+
+    @property
+    def CurrentHitPoints(self):
+        return self.__currentHitPoints
+
+    @CurrentHitPoints.setter
+    def CurrentHitPoints(self, val):
+        if type(val) is not int or val < 0:
+            raise ValueError("CurrentHitPoints must be a positive integer")
+
+        self.__currentHitPoints = val
+
+    @property
+    def XP(self):
+        return self.__xp
+
+    @XP.setter
+    def XP(self, val):
+        if type(val) is not int or val < 0:
+            raise ValueError("XP must be a positive integer")
+
+        self.__xp = val
 
     @property
     def Name(self) -> str:

@@ -13,6 +13,7 @@ class TestsCharacter(unittest.TestCase):
         self.assertEqual(self.testChar.dexterity, 0, "dexterity ctor test failed")
         self.assertEqual(self.testChar.charisma, 0, "charisma ctor test failed")
         self.assertEqual(self.testChar.constitution, 0, "constitution ctor test failed")
+        self.assertEqual(self.testChar.XP, 0, "experience points ctor test failed")
 
         self.assertEqual(self.testChar.Name, "Greg", "name ctor test failed")
 
@@ -88,6 +89,13 @@ class TestsCharacter(unittest.TestCase):
 
     def test_nameEmpty(self):
         self.assertRaises(ValueError, setattr, self.testChar, "Name", "")
+
+    def test_xpNotInt(self):
+        self.assertRaises(ValueError, setattr, self.testChar, "XP", 2.5)
+        self.assertRaises(ValueError, setattr, self.testChar, "XP", "20")
+
+    def test_xpNegaitve(self):
+        self.assertRaises(ValueError, setattr, self.testChar, "XP", -1)
 
 
 
